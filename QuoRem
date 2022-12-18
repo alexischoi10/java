@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class QuoRem
+{
+    public static void main (String[] args){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Give me an integer: ");
+        int input1 = scan.nextInt();
+        System.out.println("Give me another interger: ");
+        int input2 = scan.nextInt();
+        
+        int quotient;
+        int remainder;
+        
+        if (input1 >= input2){
+            quotient = (input1/input2);
+            remainder = (input1%input2);
+        }
+            else{
+                quotient = (input2/input1);
+                remainder = (input2%input1);
+            }
+        
+        System.out.println("Your result is " + quotient + "R" + remainder);
+    
+        
+    }
+}
