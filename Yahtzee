@@ -1,0 +1,30 @@
+public class YahtzeeDice
+{
+    private Die[] yDice=new Die[5];
+    
+    public YahtzeeDice()
+    {
+        for (int a=0; a<5; a++) 
+            yDice[a] = new Die();
+        roll5();
+    }
+    public String roll5() {
+        String s="";
+        for (int a=0; a<5; a++) {
+            yDice[a].roll();
+        s+=yDice[a].getValue() + ", ";
+        }
+        return s;
+    }
+    public int roll(int i){
+        int v = yDice[i].roll();
+        return v;
+    }
+    public String toString() {
+        String s="";
+        s += "\tDie: \t1\t2\t3\t4\t5\n\tValue:";
+        for (int a=0; a<5; a++)
+            s += "\t" + yDice[a].getValue();
+        return s;
+    }
+}
