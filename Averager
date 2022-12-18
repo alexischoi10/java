@@ -1,0 +1,49 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Averager
+{
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        double[] numbers = new double[10];
+        double sum = 0;
+        
+        for(int i=0; i<numbers.length; i++) {
+            System.out.print("Enter a double: ");
+            numbers[i] = scan.nextDouble();
+            sum += numbers[i];
+        }
+        double average = (sum / 10);
+        System.out.println("Your average is: " + average);
+        
+        System.out.print("Doubles higher than the average: "); 
+        for(int i=0; i<numbers.length; i++) {
+            if (numbers[i] > average)  
+                System.out.print(numbers[i] + ", ");
+            }
+        
+        int count = 1;
+        int maxCount = 0; 
+        double mode = 0;
+        // find the mode
+         for(int i=0; i<numbers.length; i++) {
+            for(int a=i+1; a<numbers.length; a++) {
+                if (numbers[i] == numbers[a]) 
+                    count++;
+            }
+            if (count > maxCount){   
+                maxCount = count;
+                mode = numbers[i];
+            }
+            count = 1;
+        }
+        System.out.println("\nYour mode is: " + mode);
+        
+        // this is the median 
+        Arrays.sort(numbers);
+        double median = ((numbers[4] + numbers[5])/2);
+        System.out.println("Your median is: " + median);
+        
+        
+    }
+}
