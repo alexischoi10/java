@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class RollYahtzee
+{
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        
+    boolean keepLooping = true;
+    boolean whileFirst = true;
+    boolean restart = false;
+    while (keepLooping) {
+        
+        System.out.println("Welcome to Yahtzee");
+        
+        //first roll
+        System.out.print("Enter dice number to be rolled, \"all\" for rolling all of them, or \"0\" to finish turn: ");
+        YahtzeeDice y = new YahtzeeDice();
+        
+        while (whileFirst) {
+        String firstRoll = scan.next();
+        if (firstRoll.equals ("all") ) {
+            System.out.println("Roll: all"+"\n" + y);
+            whileFirst = false; 
+        }
+        else if (firstRoll.equals ("0")) {
+            System.out.print("This turn is over.");
+            whileFirst = false;
+            restart = true;
+        }
+        else {
+            System.out.println("Sorry, that isn't an option, try again. ");
+            System.out.print("Enter dice number to be rolled, \"all\" for rolling all of them, or \"0\" to finish turn: ");
+        }
+        }
+        if (restart)
+            continue;
+        
+        //second roll
+        System.out.print("Enter values for second roll, separate by commas: ");
+        String secondRoll = scan.next();
+        String[] rolls = secondRoll.split(",");
+         
+        for (String s: rolls) {
+            int i = Integer.parseInt(s);
+            y.roll(i-1);
+        }
+        System.out.print(y);
+        
+        //third roll
+        System.out.print("\nEnter values for third roll, separate by commas: ");
+        String thirdRoll = scan.next();
+        rolls = thirdRoll.split(",");
+         
+        for (String s: rolls) {
+            int i = Integer.parseInt(s);
+            y.roll(i-1);
+        }
+        System.out.println(y);
+        System.out.println("This turn is over.");
+        
+        
+    }
+    }
+}
