@@ -1,0 +1,18 @@
+public class Library
+{
+    public static void main (String[] args) {
+        Book b1 = new Book ("White Fang", "London");
+        Book b2 = new Book ("The Two Towers", "Tolkein");
+        
+        Patron p1 = new Patron ("Jimmy");
+        
+        p1.borrow(b1);
+        if (p1.doYouHave("White Fang") )
+            System.out.println("He has White Fang");
+        if (p1.doYouHave("Harry Potter") )
+            System.out.println("He has Harry Potter");
+            else System.out.println ("He doesn't have Harry Potter");
+        System.out.println(p1.toString());
+        
+    }
+}
