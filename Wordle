@@ -1,0 +1,41 @@
+import java.util.Scanner; 
+public class Wordle
+{
+    public static void main (String[] args){
+        Scanner scan = new Scanner(System.in);
+        
+        char[] guessWord = new char[5]; 
+        String[] wordBank = {"MOVIE", "AUDIO", "KOREA", "FIRST", "CHEAP"};
+        int randomIndex = (int)(Math.random()*5);
+        String randomWord = wordBank[randomIndex];
+        int tries = 5; 
+        
+        while (tries > 0) {
+            
+            System.out.println("\nGuess a word (5 letters)");
+            String word = scan.next().toUpperCase(); 
+            
+            for (int i=0; i < word.length(); i++) {
+                if (word.charAt(i) == randomWord.charAt(i)) 
+                    System.out.print(word.charAt(i));
+                else if (randomWord.indexOf(word.charAt(i)) != (-1))
+                        System.out.print(Character.toLowerCase(word.charAt(i)));
+                else
+                    System.out.print("*");
+            }
+            if (word.equals(randomWord)) {
+                System.out.print("\nYou got it! Try again? Type Y for yes, N for no");
+                if (scan.next().equalsIgnoreCase("Y"))
+                    tries = 5;
+                else {
+                    System.out.print("Goodbye");
+                    break;
+                }
+            }
+            else {
+                tries -= 1; 
+                System.out.print("\nYou have " + tries + " turns left.");
+            }
+        }
+    }       
+}
