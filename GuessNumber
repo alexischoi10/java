@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class guessNumber
+{
+    public static void main (String[] args){
+        Scanner scan = new Scanner (System.in);
+        boolean keepPlaying = true;
+        
+        while (keepPlaying) {
+        int randomNumber =  (int) (Math.random()*10) + 1;
+        System.out.print ("Guess a number from 1 to 10: ");
+        int guess = scan.nextInt();
+        boolean keepGuessing = true;
+        int i = 0;
+        
+        while (keepGuessing) {
+            i++;
+        if (guess == randomNumber){
+            keepGuessing = false;
+        }
+        if (guess < randomNumber ){
+            System.out.print("Too small. Try again: ");
+        }
+        if (guess > randomNumber ) {
+            System.out.print("Too big. Try again: ");
+        }
+    }
+    System.out.println ("You did it!");
+   
+    }
+}
+}
