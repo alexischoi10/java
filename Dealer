@@ -1,0 +1,15 @@
+public class Dealer
+{
+    public static void main(String[] args){
+        Card c = new Card("clubs", 4);
+        Card d = new Card("diamonds", 12);
+        Card e = new Card("spades", 1);
+        
+        System.out.println(c.toString() );
+        System.out.println(d.toString() );
+        System.out.println(e.toString() );
+        
+        DeckOfCards deck1 = new DeckOfCards();
+        System.out.println (deck1.toString());
+    }
+}
