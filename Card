@@ -1,0 +1,43 @@
+public class Card
+{
+    
+    private String suit;
+    private int value;
+    private String color;
+
+    /**
+     * Constructor for objects of class Card
+     */
+    public Card(String s, int v)
+    {
+        suit = s;
+        value = v;
+        if(s.equals("hearts" )||s.equals("diamonds"))
+            color ="red";
+        else
+            color="black";
+            
+    }
+
+    public String getSuit(){
+        return suit;
+    }
+    public int getValue(){
+        return value;
+    }
+    public String getColor(){
+        return color;
+    }
+    
+    public String toString() {
+        String s = " ";
+        if (value==11) s+="Jack";
+        if (value==12) s+="Queen";
+        if (value==13) s+= "King";
+        if (value==1) s+= "Ace";
+        if (value>=2 && value<=10) s+=value;
+        s+= " of " + suit;
+        return s;
+        
+    }
+}
