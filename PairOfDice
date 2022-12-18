@@ -1,0 +1,36 @@
+public class PairOfDice
+{
+    private String color;
+    private int numSides;
+    private int sum;
+    Die die1;
+    Die die2;
+    
+    /**
+     * Constructor for objects of class PairOfDice
+     */
+    
+    public PairOfDice(int n, String c) {
+        die1 = new Die(n, c);
+        die2 = new Die(n, c);
+        sum = die1.roll() + die2.roll();
+        color = c;
+        numSides = n;
+        
+    }
+    
+    public PairOfDice() {
+        die1 = new Die();
+        die2 = new Die();
+        sum = die1.roll() + die2.roll();
+        color = "white";
+        numSides = 6;
+    }
+    public int rollPair() {
+        sum = die1.roll() + die2.roll();
+        return sum;
+    }
+    public int getSum() {
+        return sum;
+    }
+}
