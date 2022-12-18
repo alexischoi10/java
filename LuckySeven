@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class LuckySeven
+{
+    public static void main (String[] args){
+        Scanner scan = new Scanner(System.in);
+        PairOfDice myDice = new PairOfDice();
+        int sum;
+        
+        boolean keepGoing = true;
+        while(keepGoing) {
+            System.out.print("How much money do you have in dollars?");
+            int money = scan.nextInt();
+            
+            int rollCount=0;
+            while (money>0) {
+                rollCount++;
+                sum = myDice.rollPair();
+                if (sum == 7) money += 4;
+                    else money -= 1;
+                System.out.println("After " + rollCount + " rolls, you have $" +money);
+            }
+            System.out.println("And...you lose!");
+            System.out.println("Do you want to play again? (1 for yes)?");
+            if (scan.nextInt() != 1) 
+                keepGoing = false;
+            
+        }
+    }
+
+}
