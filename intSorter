@@ -1,0 +1,68 @@
+
+import java.util.Scanner;
+
+public class IntSorter
+{   
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int[] unsorted = new int[10];
+        int evenCount = 0;
+        int oddCount = 0;
+        int negsCount = 0;
+        
+        for(int a=0; a<10; a++) {
+            System.out.print("Enter an int: ");
+            unsorted[a] = scan.nextInt();
+            if (unsorted[a]%2==0) 
+                evenCount++;
+            else oddCount++;
+            if (unsorted[a]%2 < 0) 
+                negsCount++;
+        }
+        int[] evens = new int[evenCount];
+        int[] odds = new int[oddCount];
+        int[] negs = new int[negsCount];
+        int evenIndex=0; 
+        int oddIndex=0; 
+        int negsIndex=0;
+        
+        for (int a=0; a<10; a++) {
+            if(unsorted[a] < 0) {
+                negs[negsIndex] = unsorted[a];
+                negsIndex++;
+            }
+            if (unsorted[a]%2 == 0) {
+                evens[evenIndex] = unsorted[a];
+                evenIndex++;
+            }
+                else {
+                    odds[oddIndex] = unsorted[a];
+                    oddIndex++;
+                }
+    
+        }   
+        System.out.println ("These are the even numbers you gave me: \n\t");
+        if (evens.length == 0) 
+            System.out.println("(There were no even numbers.)");
+        else { 
+            for (int a=0; a<evens.length; a++){
+            System.out.print ( evens[a] + ", ");
+            }
+        }
+        System.out.println ("These are the odd numbers you gave me: \n\t");
+        if (odds.length == 0) System.out.print("(There were no even numbers.)");
+        else {
+        for (int a=0; a<odds.length; a++){
+            System.out.print( odds[a] + ", ");
+            }   
+        }
+        System.out.println ("These are the negative numbers you gave me: \n\t");
+        if (negs.length == 0) System.out.print ("There were no negative numbers.");
+        else {
+        for (int a=0; a<negs.length; a++){
+            System.out.print( negs[a] + ", ");
+            }
+        }
+    }
+
+}
