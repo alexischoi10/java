@@ -1,0 +1,58 @@
+public class Patron
+{
+    private String name;
+    private Book book1 = null;
+    private Book book2 = null;
+    private Book book3 = null;
+
+    public Patron(String n) 
+    {
+        name = n;
+    }
+    
+    public boolean borrow(Book b) 
+    {
+        if (book1 == null) { 
+            book1 = b; 
+            return true;
+            }
+            else if (book2 == null) {
+                book2 = b;
+                return true;
+                }
+                else if (book3 == null) {
+                    book3 = b;
+                    return true;
+                }
+    return false;
+    }
+    
+    public boolean doYouHave(String t) {
+        if ( book1 != null && book1.getTitle().equals(t) ) {
+            return true;
+        }
+
+        if ( book2 != null && book1.getTitle().equals(t) ) {
+            return true;
+        }
+        if ( book3 != null && book1.getTitle().equals(t) ) {
+            return true;
+        }
+        return false;
+    }
+    public String toString() {
+        String s = name + " currently has the following: \n\t";
+        if (book1 != null) {
+            s += book1.toString() + "\n\t";
+        }
+        if (book2 != null) {
+            s += book2.toString() + "\n\t";
+        }
+        if (book3 != null) {
+            s += book3.toString() + "\n\t";
+        }
+        return s;
+    }
+    
+
+}
