@@ -1,0 +1,48 @@
+public class DeckOfCards
+{
+    // instance variables - replace the example below with your own
+    private Card[] myDeck = new Card[52];
+    
+    public DeckOfCards()
+    {
+        int counter=0;
+        for(int a=1; a<=4; a++) {
+            String s="";
+            if (a==1) s="Clubs";
+            if (a==2) s="Diamonds";
+            if (a==3) s="Hearts";
+            if (a==4) s="Spades";
+            for(int z=1; z<=13; z++) {
+                myDeck[ (a-1)*13 + (z-1) ] = new Card(s, z);
+                counter++;
+            }
+        }
+    }
+
+    public void shuffle(){
+        Card[] shuffledDeck = new Card[52];
+        boolean[] flags = new boolean[52];
+        boolean keepLooping = true;
+        int shuffleIndex=0;
+        int tempIndex=0;
+        while (keepLooping) {
+            tempIndex = (int)(Math.random()*52);
+            if (!flags[tempIndex] ) {
+                shuffledDeck[shuffleIndex] = myDeck[tempIndex];
+                flags[tempIndex] = true;
+                shuffleIndex++;
+            }
+            if (shuffleIndex == 52) 
+                keepLooping = false;
+        }
+        myDeck = shuffledDeck;
+    }
+    
+    public String toString() {
+        String s="";
+        for(int a=0; a<52; a++) {
+            s += myDeck[a].toString() + "\n";
+        }
+        return s;
+    }
+}
